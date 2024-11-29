@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: uptime-kuma
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001
+paths:
+  /books:
+    post:
+      tags:
+        - default
+      summary: Add a new book
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 3
+                title: To Kill a Mockingbird
+                author: Harper Lee
+                status: READ
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: { }
