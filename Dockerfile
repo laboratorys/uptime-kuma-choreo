@@ -1,6 +1,6 @@
-FROM docker.io/louislam/uptime-kuma:1.23.13-debian@sha256:96510915e6be539b76bcba2e6873591c67aca8a6075ff09f5b4723ae47f333fc AS app-donor
+FROM docker.io/louislam/uptime-kuma:latest AS app-donor
 
-FROM openjdk:19-alpine
+FROM alpine
 
 # https://security.alpinelinux.org/vuln/CVE-2021-46848
 RUN apk add --upgrade libtasn1-progs
