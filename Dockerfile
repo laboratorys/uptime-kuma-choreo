@@ -1,6 +1,6 @@
 FROM docker.io/louislam/uptime-kuma:latest AS app-donor
 
-FROM alpine
+FROM golang:1.23.3-alpine3.20
 
 # https://security.alpinelinux.org/vuln/CVE-2021-46848
 RUN apk add --upgrade libtasn1-progs
