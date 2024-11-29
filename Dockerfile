@@ -2,6 +2,9 @@ FROM docker.io/louislam/uptime-kuma:1.23.13-debian@sha256:96510915e6be539b76bcba
 
 FROM docker.io/library/node:20.17.0-bookworm-slim@sha256:ee799af8710c0c414361d0c71f53a501cfc7bd6081336ae4fdcc223688a1e213
 
+RUN addgroup -g 10014 choreo && \
+    adduser  --disabled-password  --no-create-home --uid 10014 --ingroup choreo choreouser
+
 ARG UID=10014
 ARG GID=10014
 
