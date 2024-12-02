@@ -25,7 +25,10 @@ USER 10014
 COPY --from=app-donor /app /app
 
 WORKDIR /app/extra
-COPY healthcheck .
+RUN ls -n
+RUN rm -rf healthcheck
+ADD healthcheck .
+RUN ls -n
 EXPOSE 3001
 WORKDIR /app
 VOLUME ["/app/data"]
