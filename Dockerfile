@@ -23,7 +23,7 @@ USER 10014
 
 # Add Spring Boot app.jar to Container
 COPY --from=app-donor /app /app
-
+ENV TRIVY_DISABLE_VEX_NOTICE=true
 WORKDIR /app/extra
 RUN ls -n
 ADD healthcheck .
