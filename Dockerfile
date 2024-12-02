@@ -24,8 +24,9 @@ USER 10014
 # Add Spring Boot app.jar to Container
 COPY --from=app-donor /app /app
 
-WORKDIR /app
-COPY healthcheck /app/healthcheck
+WORKDIR /app/extra
+COPY healthcheck .
 EXPOSE 3001
+WORKDIR /app
 VOLUME ["/app/data"]
 CMD ["sh", "-c", "node server/server.js"]
