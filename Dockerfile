@@ -26,7 +26,6 @@ COPY --from=app-donor /app /app
 
 WORKDIR /app/extra
 RUN ls -n
-RUN rm -rf healthcheck
 ADD healthcheck .
 RUN ls -n
 EXPOSE 3001
