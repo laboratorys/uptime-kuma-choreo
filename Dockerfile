@@ -25,6 +25,7 @@ USER 10014
 COPY --from=app-donor /app /app
 
 WORKDIR /app
+COPY healthcheck /app/healthcheck
 EXPOSE 3001
 VOLUME ["/app/data"]
 CMD ["sh", "-c", "node server/server.js"]
