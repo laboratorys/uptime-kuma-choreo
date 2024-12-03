@@ -1,4 +1,4 @@
-FROM docker.io/uptime-kuma-choreo:latest AS app-donor
+FROM docker.io/iicm/uptime-kuma-choreo:latest AS app-donor
 
 FROM alpine
 
