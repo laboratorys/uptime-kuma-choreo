@@ -19,6 +19,7 @@ USER 10014
 
 COPY --from=app-donor /app /app
 ADD ./backup2gh /app/
+RUN chmod +x /app/backup2gh
 EXPOSE 3001
 WORKDIR /app
 VOLUME ["/app/data"]
