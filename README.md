@@ -26,4 +26,4 @@
 9. 返回`Component->URL Settings`, 绑定我们刚才添加的域名。
 10. 组织配置`URL Settings`，对绑定域名的请求审核通过
 11. 关闭`Development`, Deploy处点击`Scale to Zero`，选择`No Autoscaling`， `Stop Development`
-11. Enjoy it!
+12. Enjoy it!
