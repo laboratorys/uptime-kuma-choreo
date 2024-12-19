@@ -1,4 +1,4 @@
-FROM docker.io/iicm/uptime-kuma-choreo:latest AS app-donor
+FROM docker.io/louislam/uptime-kuma:latest AS app-donor
 
 FROM alpine
 
@@ -18,6 +18,11 @@ RUN addgroup -g 10014 choreo && \
 USER 10014
 
 COPY --from=app-donor /app /app
+ARG BAK_VERSION=2.0
+RUN cd /app && curl -L "https://github.com/laboratorys/backup-to-github/releases/download/v${BAK_VERSION}/backup2gh-v${BAK_VERSION}-linux-amd64.tar.gz" -o backup-to-github.tar.gz \
+    && tar -xzf backup-to-github.tar.gz \
+    && rm backup-to-github.tar.gz \
+    && chmod +x /app/backup2gh
 EXPOSE 3001
 WORKDIR /app
 VOLUME ["/app/data"]
