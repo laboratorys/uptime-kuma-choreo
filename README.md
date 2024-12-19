@@ -3,10 +3,8 @@
 ## 说明
 
 1. 在[choreo](https://choreo.dev/)上部署uptime-kuma
-2. uptime-kuma镜像由[官方镜像](https://hub.docker.com/r/louislam/uptime-kuma)修改而来，仅仅做了以下操作：
+2. uptime-kuma基础镜像基于[官方镜像](https://hub.docker.com/r/louislam/uptime-kuma)，仅仅做了以下操作：
 
-- 替换`/app/extra/healthcheck`，因为choreo使用了Trivy容器检测，官方构建healthcheck使用了低版本的go，检测无法通过，改版使用了golang
-  1.23.1构建
 - 增加`/app/backup2gh`,用于定时备份数据到GitHub，参考链接：https://github.com/laboratorys/backup-to-github 您需要创建一个仓库用于备份数据
 
 ## 部署
@@ -14,7 +12,7 @@
 1. 注册账号（自行注册，无门槛）， https://choreo.dev/
 2. 按照提示创建组织（Organizations）、项目（Project）
 3. 创建`Component`，*注意选择*`Create a Web Application`, Repository URL
-   填写 https://github.com/laboratorys/uptime-kuma-choreo，
+   填写 https://github.com/laboratorys/uptime-kuma-choreo ，
    `Buildpack` 选择`docker`，`Dockerfile path`做一下选择，端口：`3001`，等待Build完成，大概需要3分钟。
 4. （可选）需要备份时，配置环境变量`Devops->Configs & Secrets`
    Secrets，添加备份所需的环境变量，参考：https://github.com/laboratorys/backup-to-github
