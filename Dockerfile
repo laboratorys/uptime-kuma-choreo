@@ -15,14 +15,13 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 RUN addgroup -g 10014 choreo && \
     adduser  --disabled-password  --no-create-home --uid 10014 --ingroup choreo choreouser
 
-USER 10014
-
 COPY --from=app-donor /app /app
 ARG BAK_VERSION=2.0
-#RUN cd /app && curl -L "https://github.com/laboratorys/backup-to-github/releases/download/v${BAK_VERSION}/backup2gh-v${BAK_VERSION}-linux-amd64.tar.gz" -o backup-to-github.tar.gz \
-#    && tar -xzf backup-to-github.tar.gz \
-#    && rm backup-to-github.tar.gz \
-#    && chmod +x /app/backup2gh
+RUN cd /app && curl -L "https://github.com/laboratorys/backup-to-github/releases/download/v${BAK_VERSION}/backup2gh-v${BAK_VERSION}-linux-amd64.tar.gz" -o backup-to-github.tar.gz \
+    && tar -xzf backup-to-github.tar.gz \
+    && rm backup-to-github.tar.gz \
+    && chmod +x /app/backup2gh
+USER 10014
 EXPOSE 3001
 WORKDIR /app
 VOLUME ["/app/data"]
