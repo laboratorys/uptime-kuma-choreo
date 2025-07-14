@@ -1,6 +1,6 @@
 FROM docker.io/louislam/uptime-kuma:latest AS app-donor
 
-FROM alpine
+FROM alpine:glibc
 
 RUN apk add --upgrade libtasn1-progs
 
