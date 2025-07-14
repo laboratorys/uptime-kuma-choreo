@@ -19,7 +19,9 @@ COPY --from=app-donor /app /app
 RUN cd /app && curl -L "https://github.com/laboratorys/backup2gh/releases/latest/download/backup2gh-linux-amd64.tar.gz" -o backup2gh.tar.gz \
     && tar -xzf backup2gh.tar.gz \
     && rm backup2gh.tar.gz \
-    && chmod +x /app/backup2gh
+    && chmod +x /app/backup2gh \
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/configure.sh
 RUN mkdir -p /app/data/upload && \
     chown -R 10014:10014 /app/data && \
     chmod -R 755 /app/data
@@ -27,4 +29,4 @@ USER 10014
 EXPOSE 3001
 WORKDIR /app
 VOLUME ["/app/data"]
-CMD ["sh", "-c", "nohup /app/backup2gh & node server/server.js"]
+ENTRYPOINT ["bash", "/app/entrypoint.sh"]
