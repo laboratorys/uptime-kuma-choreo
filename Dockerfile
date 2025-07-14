@@ -27,4 +27,4 @@ USER 10014
 EXPOSE 3001
 WORKDIR /app
 VOLUME ["/app/data"]
-CMD ["sh", "-c", "node server/server.js"]
+CMD ["node","server/server.js"]
