@@ -30,7 +30,7 @@ RUN cd /app && curl -L "https://github.com/laboratorys/backup2gh/releases/latest
     && tar -xzf backup2gh.tar.gz \
     && rm backup2gh.tar.gz \
     && chmod +x /app/backup2gh
-USER choreouser
+USER 10014
 EXPOSE 3001
 WORKDIR /app
 VOLUME ["/app/data"]
