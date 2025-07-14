@@ -1,6 +1,6 @@
 FROM docker.io/louislam/uptime-kuma:latest AS app-donor
 
-FROM debian:slim
+FROM debian:12-slim
 
 RUN apt-get update && apt-get install -y \
     libtasn1-bin \
