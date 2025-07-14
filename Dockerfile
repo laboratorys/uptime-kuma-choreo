@@ -21,7 +21,7 @@ RUN cd /app && curl -L "https://github.com/laboratorys/backup2gh/releases/latest
     && rm backup2gh.tar.gz \
     && chmod +x /app/backup2gh \
 COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/configure.sh
+RUN chmod +x /app/entrypoint.sh
 RUN mkdir -p /app/data/upload && \
     chown -R 10014:10014 /app/data && \
     chmod -R 755 /app/data
