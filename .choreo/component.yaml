@@ -1,11 +1,11 @@
-schemaVersion: "1.1"
+schemaVersion: "1.2"
 endpoints:
-    - name: uptime-kuma
-      displayName: uptime-kuma
-      service:
-        basePath: /
-        port: 3001
-      type: REST
-      networkVisibilities:
-        - Public
-      schemaFilePath: openapi.yaml
+  - name: uptime-kuma
+    displayName: uptime-kuma
+    service:
+      basePath: /
+      port: 3001
+    type: REST
+    networkVisibilities:
+      - Public
+    schemaFilePath: openapi.yaml

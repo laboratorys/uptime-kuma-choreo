@@ -1,4 +1,4 @@
-FROM docker.io/louislam/uptime-kuma:latest AS app-donor
+FROM docker.io/louislam/uptime-kuma:1 AS app-donor
 
 FROM alpine
 
