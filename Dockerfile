@@ -4,7 +4,7 @@ FROM alpine
 
 RUN apk add --upgrade libtasn1-progs
 
-RUN apk add --no-cache nodejs npm git curl jq tar libc6-compat
+RUN apk add --no-cache nodejs npm git curl jq tar libc6-compat gcompat
 
 RUN apk update && apk upgrade zlib
 
