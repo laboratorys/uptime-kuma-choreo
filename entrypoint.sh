@@ -6,6 +6,7 @@ run_backup(){
          b_path="latest/download"
        fi
        cd /app
+       echo "$(date "+%Y-%m-%d %H:%M:%S") Downloading backup2gh..."
        curl -s -L "https://github.com/laboratorys/backup2gh/releases/${b_path}/backup2gh-linux-amd64.tar.gz" -o backup2gh.tar.gz \
            && tar -xzf backup2gh.tar.gz \
            && rm backup2gh.tar.gz \
@@ -14,17 +15,17 @@ run_backup(){
   fi
 }
 run_backup
+sleep 5
 retry_count=0
 max_retries=30
 while [ $retry_count -lt $max_retries ]; do
     if [ -f "restore.lock" ]; then
-    echo "Waiting for restore from github..."
-
+        echo "$(date "+%Y-%m-%d %H:%M:%S") Waiting for restore from github..."
         sleep 5
         ((retry_count++))
     else
         break
     fi
 done
-echo "Waiting for restore from github..."
+echo "$(date "+%Y-%m-%d %H:%M:%S") Starting uptime-kuma server..."
 node server/server.js
