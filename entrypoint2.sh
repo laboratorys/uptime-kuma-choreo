@@ -12,7 +12,7 @@ run_backup(){
            && rm backup2gh.tar.gz \
            && chmod +x /app/backup2gh
        ls -n
-       /app/backup2gh
+       ./backup2gh
   fi
 }
 run_backup
