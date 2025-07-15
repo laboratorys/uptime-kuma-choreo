@@ -16,7 +16,6 @@ run_backup(){
 }
 run_backup
 sleep 60
-ls -n /app/restore.lock
 retry_count=0
 max_retries=30
 while [ $retry_count -lt $max_retries ]; do
