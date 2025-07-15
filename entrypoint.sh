@@ -15,11 +15,12 @@ run_backup(){
   fi
 }
 run_backup
-sleep 5
+sleep 3
+ls -n /app/restore.lock
 retry_count=0
 max_retries=30
 while [ $retry_count -lt $max_retries ]; do
-    if [ -f "restore.lock" ]; then
+    if [ -f "/app/restore.lock" ]; then
         echo "$(date "+%Y-%m-%d %H:%M:%S") Waiting for restore from github..."
         sleep 5
         ((retry_count++))
