@@ -15,7 +15,7 @@ run_backup(){
   fi
 }
 run_backup
-sleep 3
+sleep 60
 ls -n /app/restore.lock
 retry_count=0
 max_retries=30
