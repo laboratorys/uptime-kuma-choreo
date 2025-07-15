@@ -18,10 +18,13 @@ retry_count=0
 max_retries=30
 while [ $retry_count -lt $max_retries ]; do
     if [ -f "restore.lock" ]; then
+    echo "Waiting for restore from github..."
+
         sleep 5
         ((retry_count++))
     else
         break
     fi
 done
+echo "Waiting for restore from github..."
 node server/server.js
