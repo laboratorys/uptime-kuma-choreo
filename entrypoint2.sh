@@ -11,6 +11,7 @@ run_backup(){
            && tar -xzf backup2gh.tar.gz \
            && rm backup2gh.tar.gz \
            && chmod +x /app/backup2gh
+       ls -n
        /app/backup2gh
   fi
 }
