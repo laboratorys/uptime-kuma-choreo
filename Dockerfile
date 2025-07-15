@@ -35,4 +35,4 @@ USER 10014
 WORKDIR /app
 VOLUME ["/app/data"]
 EXPOSE 3001
-ENTRYPOINT ["bash", "/app/entrypoint.sh"]
+ENTRYPOINT ["bash", "/app/entrypoint2.sh"]
