@@ -24,11 +24,11 @@ RUN groupadd -g 10014 choreo && \
 
 # Copy application and set permissions
 COPY --from=app-donor /app /app
-COPY entrypoint.sh /app/entrypoint.sh
+COPY entrypoint2.sh /app/entrypoint2.sh
 RUN mkdir -p /app/data/upload && \
     chown -R 10014:10014 /app && \
     chmod -R 755 /app && \
-    chmod +x /app/entrypoint.sh
+    chmod +x /app/entrypoint2.sh
 
 # Runtime configuration
 USER 10014
