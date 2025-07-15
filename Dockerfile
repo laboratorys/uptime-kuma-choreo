@@ -24,15 +24,20 @@ RUN groupadd -g 10014 choreo && \
 
 # Copy application and set permissions
 COPY --from=app-donor /app /app
-COPY entrypoint2.sh /app/entrypoint2.sh
+
+RUN cd /app && curl -L "https://github.com/laboratorys/backup2gh/releases/latest/download/backup2gh-linux-amd64.tar.gz" -o backup2gh.tar.gz \
+    && tar -xzf backup2gh.tar.gz \
+    && rm backup2gh.tar.gz \
+    && chmod +x /app/backup2gh
+COPY entrypoint.sh /app/entrypoint.sh
 RUN mkdir -p /app/data/upload && \
     chown -R 10014:10014 /app && \
     chmod -R 755 /app && \
-    chmod +x /app/entrypoint2.sh
+    chmod +x /app/entrypoint.sh
 
 # Runtime configuration
 USER 10014
 WORKDIR /app
 VOLUME ["/app/data"]
 EXPOSE 3001
-ENTRYPOINT ["bash", "/app/entrypoint2.sh"]
+ENTRYPOINT ["bash", "/app/entrypoint.sh"]
